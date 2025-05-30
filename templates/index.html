@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='logo.PNG') }}" alt="Logo" class="logo">
+            <h1>Password Strength Checker</h1>
+            <p>Check the strength and security of your password</p>
+            <p class="branding">PwnedProof by Ilyssa</p>
+        </div>
+
+        <div class="password-input-section">
+            <div class="input-container">
+                <input type="password" id="passwordInput" placeholder="Enter your password" maxlength="128">
+                <button type="button" id="togglePassword" class="toggle-btn">👁️</button>
+            </div>
+            <button id="checkButton" class="check-btn">Check Password</button>
+        </div>
+
+        <div id="results" class="results-section" style="display: none;">
+            <div class="strength-indicator">
+                <div class="strength-bar">
+                    <div id="strengthFill" class="strength-fill"></div>
+                </div>
+                <div id="strengthText" class="strength-text"></div>
+            </div>
+
+            <div class="password-details">
+                <h3>Password Analysis</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">Length:</span>
+                        <span id="lengthCount" class="value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Lowercase letters:</span>
+                        <span id="lowerCount" class="value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Uppercase letters:</span>
+                        <span id="upperCount" class="value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Numbers:</span>
+                        <span id="numCount" class="value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Special characters:</span>
+                        <span id="specialCount" class="value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Spaces:</span>
+                        <span id="spaceCount" class="value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hibpResults" class="hibp-section"></div>
+            <div id="remarks" class="remarks-section"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Checking password security...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
